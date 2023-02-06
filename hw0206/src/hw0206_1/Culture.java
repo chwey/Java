@@ -16,46 +16,55 @@ public abstract class Culture {
 	int act;
 	int aud;
 	int score;
-	
+	int totalScore;
 	
 	
 	
 	//생성자
-	public Culture(String title, int dir, int act, int aud, int score) {
+	public Culture(String title, int dir, int act) {
 		
 		this.title = title;
 		this.dir = dir;
 		this.act = act;
-		this.aud = aud;
-		this.score = score;
+		
 	}
 	
 	
 	//메소드
 	
 	public void setTotalScore(int score) {
-		
+		aud++;
+		totalScore += score;
 	}
 	
 	public String getGrade() {
+		
+		int grade;
+		grade = (totalScore/aud);
+		
 		switch(grade) {
-		int grade = 0;
-		case 1: 
+		case 1:
+			System.out.println("☆");
 			break;
-		case 2:
+		case 2:	
+			System.out.println("☆☆");
 			break;
 		case 3:
+			System.out.println("☆☆☆");
 			break;
 		case 4:
+			System.out.println("☆☆☆☆");
 			break;
 		case 5:
+			System.out.println("☆☆☆☆☆");
 			break;
 		}
 		return "☆";
 	}
 	
 	public abstract void getInformation();
-		
+	
+	
 	
 	
 }
