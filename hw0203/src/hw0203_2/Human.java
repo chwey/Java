@@ -8,46 +8,26 @@ public class Human {
 		
 	*/
 	
-	private String name;
-	private int height;
-	private int weight;
+	//필드
+	String name;
+	 int height;
+	 int weight;
 	
 	
-	
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public int getHeight() {
-		return height;
-	}
-
-	public void setHeight(int height) {
-		this.height = height;
-	}
-
-	public int getWeight() {
-		return weight;
-	}
-
-	public void setWeight(int weight) {
-		this.weight = weight;
-	}
-
+	//생성자
 	public Human(String name, int height, int weight) {
-		super();
 		this.name = name;
 		this.height = height;
 		this.weight = weight;
 	}
 	
-	void getInformation() {
-		System.out.println("이름 : " + name + "키 : " + height + "몸무게 : " + weight);
+
+	//메소드
+	public void getInformation() {
+		System.out.print("이름 : " + name + "키 : " + height + "몸무게 : " + weight);
 	}
+	
+	
 	
 
 }

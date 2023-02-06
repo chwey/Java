@@ -11,6 +11,7 @@ public class Main {
 	
 		EmpDept person = new EmpDept("이지나", 3000, "교육부");	
 		person.getInformation();
+		person.print();
 		
 		
 	}

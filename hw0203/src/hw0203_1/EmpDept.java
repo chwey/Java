@@ -14,21 +14,36 @@ public class EmpDept extends Employee{
 	private String department;
 	
 	//생성자
+	public EmpDept(String name, int Salary, String department) {
+		//부모 생성자를 통해 부모 객체 생성
+		super(name, Salary);
+		//자식 객체 생성할때 부서 이름 초기화
+		this.department = department;
+		
+	}
+	
 	public String getDepartment() {
 		return department;
 	}
 	
 	
-	public EmpDept(String name, int Salary, String department) {
-		super(name, Salary);
-		this.department = department;
-		
+	//메소드
+	
+	@Override
+	public void getInformation() {
+		super.getInformation();
+		System.out.println(" 부서:" + getDepartment());
+	}
+
+	@Override
+	public void print() {
+		super.print();
+		System.out.println("서브클래스");
 	}
 	
-	//메소드
-	public void getInformation() {
-		System.out.println("이름:"+ getName() + " 연봉:" + getSalary() + " 부서:" + getDepartment());
-	}
+
+
+
 	
 	
 	

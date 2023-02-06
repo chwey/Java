@@ -9,14 +9,21 @@ public class StandardWeightInfo extends Human {
 			( * 표준 체중 : (Height - 100) * 0.9 )
 			*/
 	
-	private int bmi;
-
-	public int getBmi() {
-		return bmi;
+	public StandardWeightInfo(String name, int height, int weight) {
+		super(name, height, weight);
+		
 	}
 
-	public void setBmi(int bmi) {
-		this.bmi = bmi;
+	@Override
+	public void getInformation() {
+		super.getInformation();
+		System.out.print("표준체중 %.1f 입니다.\n " + getStandardWeight());
+	}
+
+	public double getStandardWeight() {
+		double result = (double)((super.height - 100) * 0.9);
+		return result;
+		
 	}
 	
 	

@@ -30,6 +30,12 @@ public class Employee {
 	 
 	
 	//생성자
+	public Employee(String name, int Salary) {
+		this.name = name;
+		this.Salary = Salary;
+		
+	}
+	
 	public String getName() {
 		return name;
 	}
@@ -39,14 +45,15 @@ public class Employee {
 		return Salary;
 	}
 	
+	//메소드
 	
-	
-	public Employee(String name, int Salary) {
-		this.name = name;
-		this.Salary = Salary;
-		
+	public void getInformation() {
+		System.out.println("이름 : " + name + "연봉 : " + Salary);
 	}
 	
+	public void print() {
+		System.out.println("수퍼클래스");
+	}
 	
 	
 
