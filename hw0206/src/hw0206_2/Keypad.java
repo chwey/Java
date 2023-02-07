@@ -13,8 +13,8 @@ package hw0206_2;
 
 public interface Keypad {
 	//상수
-	public static final int NORMAL_MODE = 0;
-	public static final int HARD_MODE = 1;
+	public int NORMAL_MODE = 0;
+	public int HARD_MODE = 1;
 	
 	//추상 메소드
 	public abstract void leftUpButton();

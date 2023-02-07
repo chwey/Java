@@ -33,16 +33,20 @@ public abstract class Culture {
 	//메소드
 	
 	public void setTotalScore(int score) {
+		//관객수 1씩 증가
 		aud++;
+		//점수를 누적(총점)
 		totalScore += score;
 	}
 	
+	
 	public String getGrade() {
 		
-		int grade;
-		grade = (totalScore/aud);
+		//첫번째 방법
+		int avg = (totalScore/aud);
+		String grade = "";
 		
-		switch(grade) {
+		switch(avg) {
 		case 1:
 			System.out.println("☆");
 			break;
@@ -59,13 +63,19 @@ public abstract class Culture {
 			System.out.println("☆☆☆☆☆");
 			break;
 		}
-		return "☆";
+		return grade;
 	}
+	
+	//두번째방법
+//	for (int i = 0; i < avg; i++) {
+//		grade+= "☆";
+//	}
+//	return grade;
+	
 	
 	public abstract void getInformation();
 	
-	
-	
+
 	
 }
 	

@@ -24,8 +24,21 @@ package hw0206_2;
 public class Main {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+		Keypad game = new RPGgame();
+		game.leftUpButton();
+		game.leftDownButton();
+		game.changeMode();
+		game.rightUpButton();
+		game.rightDownButton();
+		game.changeMode();
+		game.rightDownButton();
+		
+		System.out.println("==============");
+		
+		Keypad game1 = new ArcadeGame();
+		//game = new ArcadeGame();
+		
+		
 	}
 
 }

@@ -16,7 +16,16 @@ package hw0206_2;
 	*/
 public class RPGgame implements Keypad {
 	
+	private int currentMode;
 	
+	
+	
+	public RPGgame() {
+		currentMode = Keypad.NORMAL_MODE;
+		System.out.println("RPGgame 실행");
+	}
+	
+
 	@Override
 	public void leftUpButton() {
 		System.out.println("캐릭터가 위쪽으로 이동한다");
@@ -31,19 +40,41 @@ public class RPGgame implements Keypad {
 
 	@Override
 	public void rightUpButton() {
-		
+		if(currentMode == Keypad.NORMAL_MODE) {
+			System.out.println("캐릭터가 한칸단위로 점프한다.");
+		}else if(currentMode == Keypad.HARD_MODE){
+			System.out.println("캐릭터가 두칸단위로 점프한다.");
+		}
 		
 	}
 
 	@Override
 	public void rightDownButton() {
-		System.out.println("캐릭터가 위쪽으로 이동한다");
-		
+//		if(currentMode == Keypad.NORMAL_MODE) {
+//			System.out.println("캐릭터가 일반 공격.");
+//		}else if(currentMode == Keypad.HARD_MODE){
+//			System.out.println("캐릭터가 HIT 공격.");
+//		}
+		switch(currentMode) {
+		case Keypad.NORMAL_MODE:
+			System.out.println("캐릭터가 일반 공격.");
+			break;
+		case Keypad.HARD_MODE:
+			System.out.println("캐릭터가 HIT 공격.");
+			break;
+		}
+
 	}
 
 	@Override
 	public void changeMode() {
-		System.out.println("캐릭터가 위쪽으로 이동한다");
+		if(currentMode == Keypad.NORMAL_MODE) {
+			currentMode = Keypad.HARD_MODE;
+			System.out.println("현재모드 : HardMode");
+		}else if(currentMode == Keypad.HARD_MODE) {
+			currentMode = Keypad.NORMAL_MODE;
+			System.out.println("현재모드 : NormalMode");
+		}
 		
 	}
 

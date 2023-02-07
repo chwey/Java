@@ -21,8 +21,7 @@ public abstract class Performance extends Culture{
 		System.out.println("영화제목:" + title);
 		System.out.println("감독:" + dir);
 		System.out.println("배우:" + act);
-		System.out.println("관객수:" + aud );
-		System.out.println("총점 : " + score);
+		System.out.println("총점 : " + totalScore);
 		System.out.println("평점 :" + getGrade());
 	}
 	
