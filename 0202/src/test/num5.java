@@ -29,8 +29,10 @@ public class num5 {
 				//7 -> 배열크기(사이즈) = 7
 				//배열입장 -> 0~6 -> 주사위 비유 -> 1~7
 				//if문 활용  -> 경고창
-				if(num < 5 || num > 10) {
-					System.out.println("5~10사이 수를 입력하세요.");
+				if(num>=5 && num<=10) {
+					game = new int[num];
+				}else {
+					System.out.println("범위 x");
 				}
 				break;
 			case "2" :

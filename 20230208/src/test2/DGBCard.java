@@ -8,6 +8,7 @@ public class DGBCard extends Card{
 	public DGBCard(String cardNo, int validDate, int cVC, String cardStaff) {
 		super(cardNo, validDate, cVC);
 		this.cardStaff = cardStaff;
+		this.company = "대구은행";
 	}
 
 	@Override

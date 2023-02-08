@@ -11,9 +11,11 @@ public class Main {
 		info.showCardInfo();
 		
 		
-		info.showCardInfo();
+		Card toss = new TossCard("5432-4567-9534-3657", 20251203, 253, "신비룡");
+		toss.showCardInfo();
 		
-		
+		Card DGB = new DGBCard("5432-4567-9534-3657", 20251203, 253, "신비룡");
+		DGB.showCardInfo();
 
 	}
 

@@ -8,6 +8,7 @@ public class TossCard extends Card{
 	public TossCard(String cardNo, int validDate, int cVC, String cardStaff) {
 		super(cardNo, validDate, cVC);
 		this.cardStaff = cardStaff;
+		this.company = "Toss";
 	}
 
 	@Override

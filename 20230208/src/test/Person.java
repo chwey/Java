@@ -8,6 +8,12 @@ public class Person {
 	
 	
 	
+	Person(){
+		
+	}
+	
+	
+	
 	public Person(String ssn, String name, String address) {
 		super();
 		this.ssn = ssn;

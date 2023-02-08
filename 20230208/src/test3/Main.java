@@ -7,17 +7,16 @@ public class Main {
 		int price = 10000;
 		
 		Payment card = new CardPayment(0.08);
-		card.online();
-		System.out.println("온라인 결제시 총 할인율 :" );
-		card.offline();
 		card.showInfo();
-		System.out.println("온라인 결제 금액 :" + card.online()*10000);
-		System.out.println("오프라인 결제 금액 :" + card.offline());
+		System.out.println("온라인 결제 금액 :" + card.online(price));
+		System.out.println("오프라인 결제 금액 :" + card.offline(price));
 		
-//		Payment simple = new SimplePayment(0.05);
-//		card.showInfo();
-//		System.out.println("온라인 결제 금액 :" + simple.online(price));
-//		System.out.println("오프라인 결제 금액 :" + simple.offline(price));
+
+		
+		Payment simple = new SimplePayment(0.05);
+		simple.showInfo();
+		System.out.println("온라인 결제 금액 :" + simple.online(price));
+		System.out.println("오프라인 결제 금액 :" + simple.offline(price));
 	}
 
 }
