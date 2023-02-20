@@ -3,6 +3,7 @@ package com.yedam.exe;
 import java.util.Scanner;
 
 import com.yedam.departments.service.DepartmentsService;
+import com.yedam.departments.service.EmployeesService;
 
 public class LodingForm {
 	
@@ -98,6 +99,43 @@ public class LodingForm {
 	}
 	
 	private void employees() {
+		int employeeMemu = 0;
+		EmployeesService es = new EmployeesService();
+		while(employeeMemu != 6) {
+			System.out.println("=============================");
+			System.out.println("1. 모든 사원 조회  2. 사원 조회  3. 삭제  4. 수정  5. 등록  6. 종료");
+			System.out.println("=============================");
+			System.out.println("입력>");
+			employeeMemu = Integer.parseInt(sc.nextLine());
+			
+			switch(employeeMemu) {
+			case 1:
+				es.getEmployeesList();
+				break;
+				
+			case 2:
+				es.getEmployees();
+				break;
+				
+			case 3:
+				es.deleteEmp();
+				break;
+				
+			case 4:
+				es.modifyEmp();
+				break;
+				
+			case 5:
+				es.insertEmp();
+				break;
+				
+			case 6:
+				System.out.println("프로그램 종료");
+				break;
+			
+			}
+			
+		}
 		
 	}
 	
