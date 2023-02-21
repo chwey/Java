@@ -1,5 +1,6 @@
 package com.yedam.departments.service;
 
+import java.sql.Date;
 import java.util.List;
 import java.util.Scanner;
 
@@ -13,9 +14,10 @@ public class EmployeesService {
 		System.out.println("================================");
 		for(int i=0; i<list.size(); i++) {
 			System.out.println("사원 ID :"+ list.get(i).getEmployeeId());
-			System.out.println("사원 이름 :"+ list.get(i).getEmployeeName());
-			System.out.println("직종 ID : "+ list.get(i).getEmployeeJobId());
-			System.out.println("전화번호 :"+ list.get(i).getEmployeePhoneNumber());
+			System.out.println("사원 이름 :"+ list.get(i).getLastName());
+			System.out.println("이메일 : "+ list.get(i).getEmail());
+			System.out.println("입사년도 :"+ list.get(i).getHireDate());
+			System.out.println("직종 ID :"+ list.get(i).getJobId());
 			System.out.println("================================");
 		}
 	}
@@ -29,29 +31,28 @@ public class EmployeesService {
 			System.out.println("조회된결과없음");
 		}else {
 			System.out.println("사원 ID :"+ emp.getEmployeeId());
-			System.out.println("사원 이름 :"+ emp.getEmployeeName());
-			System.out.println("직종 ID :"+ emp.getEmployeeJobId());
-			System.out.println("전화번호 :"+ emp.getEmployeePhoneNumber());
+			System.out.println("사원 이름 :"+ emp.getLastName());
+			System.out.println("이메일 :"+ emp.getEmail());
+			System.out.println("입사년도 :"+ emp.getHireDate());
+			System.out.println("직종 ID :"+ emp.getJobId());
 			
 		}
 		System.out.println("================================");
 	}
 	//사원 등록
 	public void insertEmp() {
+		Employees emp = new Employees();
 		System.out.println("====사원등록====");
 		System.out.println("사원 ID>");
-		int empNo = Integer.parseInt(sc.nextLine());
+		emp.setEmployeeId(Integer.parseInt(sc.nextLine()));	
 		System.out.println("사원 이름>");
-		String empName = sc.nextLine();
+		emp.setLastName(sc.nextLine());
+		System.out.println("이메일>");
+		emp.setEmail(sc.nextLine());
+//		System.out.println("입사년도>");
+//		emp.setHireDate(Date.valueOf(sc.nextLine()));
 		System.out.println("직종 ID>");
-		String jobid = sc.nextLine();
-		System.out.println("전화번호>");
-		int pn = Integer.parseInt(sc.nextLine());
-		Employees emp = new Employees();
-		emp.setEmployeeId(empNo);
-		emp.setEmployeeName(empName);
-		emp.setEmployeeJobId(jobid);
-		emp.setEmployeePhoneNumber(pn);
+		emp.setJobId(sc.nextLine());
 		
 		int result = EmployeesDAO.getInstance().insertEmp(emp);
 		
@@ -71,7 +72,7 @@ public class EmployeesService {
 		
 		Employees emp = new Employees();
 		emp.setEmployeeId(empNo);
-		emp.setEmployeeJobId(jobid);
+		emp.setJobId(jobid);
 		
 		int result = EmployeesDAO.getInstance().modifyEmp(emp);
 		

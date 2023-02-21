@@ -35,10 +35,10 @@ public class EmployeesDAO extends DAO{
 			while(rs.next()) {
 				employ = new Employees();
 				employ.setEmployeeId(rs.getInt("employee_id"));
-				employ.setEmployeeName(rs.getString("employee_name"));
-				employ.setEmployeeJobId(rs.getString("job_id"));
-				employ.setEmployeePhoneNumber(rs.getInt("phone_number"));
-				
+				employ.setLastName(rs.getString("last_name"));
+				employ.setEmail(rs.getString("email"));
+				employ.setHireDate(rs.getDate("hire_date"));
+				employ.setJobId(rs.getString("job_id"));
 				list.add(employ);
 				
 			}
@@ -65,9 +65,10 @@ public class EmployeesDAO extends DAO{
 			if(rs.next()) {
 				employ = new Employees();
 				employ.setEmployeeId(rs.getInt("employee_id"));
-				employ.setEmployeeName(rs.getString("employee_name"));
-				employ.setEmployeeJobId(rs.getString("job_id"));
-				employ.setEmployeePhoneNumber(rs.getInt("phone_number"));
+				employ.setLastName(rs.getString("last_name"));
+				employ.setEmail(rs.getString("email"));
+				employ.setHireDate(rs.getDate("hire_date"));
+				employ.setJobId(rs.getString("job_id"));
 				
 			}
 			
@@ -107,7 +108,7 @@ public class EmployeesDAO extends DAO{
 			conn();
 			String sql = "update set job_id = ? where employee_id = ?";
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, emp.getEmployeeJobId());
+			pstmt.setString(1, emp.getJobId());
 			pstmt.setInt(2, emp.getEmployeeId());
 			
 			result = pstmt.executeUpdate();
@@ -128,12 +129,14 @@ public class EmployeesDAO extends DAO{
 		
 		try {
 			conn();
-			String sql = "insert into emp values (?, ?, ?, ?)";
+			String sql = "insert into emp (employee_id, last_name, email, hire_date, job_id)"
+					+"values (?,?,?,sysdate,?)";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, emp.getEmployeeId());
-			pstmt.setString(2, emp.getEmployeeName());
-			pstmt.setString(3, emp.getEmployeeJobId());
-			pstmt.setInt(4, emp.getEmployeePhoneNumber());
+			pstmt.setString(2, emp.getLastName());
+			pstmt.setString(3, emp.getEmail());
+//			pstmt.setDate(4, emp.getHireDate());
+			pstmt.setString(4, emp.getJobId());
 			
 			result = pstmt.executeUpdate();
 			

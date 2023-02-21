@@ -1,11 +1,18 @@
 package com.yedam.departments.service;
 
+import java.sql.Date;
+
 public class Employees {
 	
 	private int employeeId;
-	private String employeeName;
-	private String employeeJobId;
-	private int employeePhoneNumber;
+	private String lastName;
+	private String email;
+	//java.sql.date: 연월일
+	//java.util.date: 연월일시분초
+	//사용하는 방식 다름
+	private Date hireDate;
+	private String jobId;
+	
 	
 	
 	public int getEmployeeId() {
@@ -14,24 +21,33 @@ public class Employees {
 	public void setEmployeeId(int employeeId) {
 		this.employeeId = employeeId;
 	}
-	public String getEmployeeName() {
-		return employeeName;
+	public String getLastName() {
+		return lastName;
 	}
-	public void setEmployeeName(String employeeName) {
-		this.employeeName = employeeName;
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
 	}
-	public String getEmployeeJobId() {
-		return employeeJobId;
+	public String getEmail() {
+		return email;
 	}
-	public void setEmployeeJobId(String employeeJobId) {
-		this.employeeJobId = employeeJobId;
+	public void setEmail(String email) {
+		this.email = email;
 	}
-	public int getEmployeePhoneNumber() {
-		return employeePhoneNumber;
+	public Date getHireDate() {
+		return hireDate;
 	}
-	public void setEmployeePhoneNumber(int employeePhoneNumber) {
-		this.employeePhoneNumber = employeePhoneNumber;
+	public void setHireDate(Date hireDate) {
+		this.hireDate = hireDate;
 	}
+	public String getJobId() {
+		return jobId;
+	}
+	public void setJobId(String jobId) {
+		this.jobId = jobId;
+	}
+	
+	
+	
 	
 	
 	
