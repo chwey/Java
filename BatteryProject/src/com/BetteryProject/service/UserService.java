@@ -124,11 +124,12 @@ public class UserService {
 		String useNo = sc.nextLine();
 		
 		User use = new User();
-		use.setuId(useNo);
+//		use.setuId(useNo);
 		
 		int result = UserDAO.getInstance().deleteUser(use);
 		
 		if(result > 0) {
+			UserService.userInfo = null; //로그아웃
 			System.out.println("계정 삭제 완료");
 		}else {
 			System.out.println("계정 삭제 실패");

@@ -35,7 +35,7 @@ public class ExeApp {
 	private void loginMenu() {
 		//대여, 반납
 		System.out.println("☆.。.:*・°☆ ｡+.｡☆ﾟ:;｡+ﾟ☆.。.:*・°☆ ｡+.｡☆ﾟ:;｡+ﾟ");
-		System.out.println("☆.。.:*1. 대여 ☆.。.:* 2. 반납 ☆.。.:*3. 회원 수정");
+		System.out.println("☆.。.:*1. 대여 ☆.。.:* 2. 반납 ☆.。.:* 3. 회원 수정 ☆.。.:* 4. 탈퇴");
 		System.out.println("입력>");
 		menu = sc.nextLine();
 		if(menu.equals("1")) {
@@ -44,6 +44,8 @@ public class ExeApp {
 			
 		}else if(menu.equals("3")) {
 			modify();
+		}else if(menu.equals("4")) {
+			us.deleteUser();
 		}
 		
 	}
@@ -60,9 +62,27 @@ public class ExeApp {
 	}
 	
 	private void ManagerMenu() {
-		System.out.println("☆.。.:*1. 기계등록 ☆.。.:* 2. 기계수정 ☆.。.:* 3. 기계조회 ☆.。.:* 4. HISTORY ☆.。.:* 5. 폐기 ☆.。.:*");
+		System.out.println("1. 중앙로  2. 반월당  3. 상인  4. 동대구역");
+		menu = sc.nextLine();
 		System.out.println("입력>");
-
+		menu = sc.nextLine();
+		if(menu.equals("1")) {
+			System.out.println("☆.。.:*1. 기계등록 ☆.。.:* 2. 기계수정 ☆.。.:* 3. 기계조회 ☆.。.:* 4. HISTORY ☆.。.:* 5. 폐기 ☆.。.:*");
+			menu = sc.nextLine();
+			
+		}else if(menu.equals("2")) {
+			System.out.println("☆.。.:*1. 기계등록 ☆.。.:* 2. 기계수정 ☆.。.:* 3. 기계조회 ☆.。.:* 4. HISTORY ☆.。.:* 5. 폐기 ☆.。.:*");
+			menu = sc.nextLine();
+			
+		}else if(menu.equals("3")) {
+			System.out.println("☆.。.:*1. 기계등록 ☆.。.:* 2. 기계수정 ☆.。.:* 3. 기계조회 ☆.。.:* 4. HISTORY ☆.。.:* 5. 폐기 ☆.。.:*");
+			menu = sc.nextLine();
+			
+		}else if(menu.equals("4")) {
+			System.out.println("☆.。.:*1. 기계등록 ☆.。.:* 2. 기계수정 ☆.。.:* 3. 기계조회 ☆.。.:* 4. HISTORY ☆.。.:* 5. 폐기 ☆.。.:*");
+			menu = sc.nextLine();
+			
+		}
 		
 	}
 	
