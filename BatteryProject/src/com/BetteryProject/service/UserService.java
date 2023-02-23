@@ -20,7 +20,7 @@ public class UserService {
 		if(user != null) {
 			if(user.getuPw().equals(userPW)) {
 				System.out.println("로그인 완료 ✌(-‿-)✌");
-				System.out.println(user.getuId() + "님 안녕하세요 ˙ᵕ˙");
+				System.out.println(user.getuName() + "님 안녕하세요 ˙ᵕ˙");
 				userInfo = user;
 			}else {
 				System.out.println("비밀번호가 틀립니다.");
@@ -124,7 +124,7 @@ public class UserService {
 		String useNo = sc.nextLine();
 		
 		User use = new User();
-//		use.setuId(useNo);
+		use.setuId(useNo);
 		
 		int result = UserDAO.getInstance().deleteUser(use);
 		

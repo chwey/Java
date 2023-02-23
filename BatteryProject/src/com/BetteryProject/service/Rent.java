@@ -1,5 +1,5 @@
 package com.BetteryProject.service;
 
-public class BatteryDAO {
+public class Rent {
 
 }

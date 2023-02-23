@@ -1,5 +1,5 @@
 package com.BetteryProject.service;
 
-public class LocationService {
+public class RentService {
 
 }
