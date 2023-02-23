@@ -110,8 +110,11 @@ public class BetteryDAO extends DAO{
 		
 		try {
 			conn();
-			String sql = "";
+			String sql = "delete from bettery where b_num = ?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, b.getbNum());
 			
+			result = pstmt.executeUpdate();
 			
 		}catch(Exception e) {
 			e.printStackTrace();

@@ -60,8 +60,7 @@ public class UserDAO extends DAO{
 			pstmt.setString(2, use.getuPw());
 			pstmt.setString(3, use.getuName());
 			pstmt.setString(4, use.getuPhoneNumber());
-			pstmt.setString(5, use.getuMail());
-//			
+			pstmt.setString(5, use.getuMail());		
 			
 			result = pstmt.executeUpdate();
 			

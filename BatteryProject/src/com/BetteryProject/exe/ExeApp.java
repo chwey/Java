@@ -82,7 +82,7 @@ public class ExeApp {
 		}else if(menu.equals("3")) {
 			BattList();
 		}else if(menu.equals("4")) {
-			
+			bs.deleteBett();
 		}
 	
 	}
@@ -99,7 +99,7 @@ public class ExeApp {
 		}else if(menu.equals("3")) {
 			BattList();
 		}else if(menu.equals("4")) {
-			
+			bs.deleteBett();
 		}
 	
 	}
@@ -116,7 +116,7 @@ public class ExeApp {
 		}else if(menu.equals("3")) {
 			BattList();
 		}else if(menu.equals("4")) {
-			
+			bs.deleteBett();
 		}
 	
 	}
@@ -133,7 +133,7 @@ public class ExeApp {
 		}else if(menu.equals("3")) {
 			BattList();
 		}else if(menu.equals("4")) {
-			
+			bs.deleteBett();
 		}
 	}
 	

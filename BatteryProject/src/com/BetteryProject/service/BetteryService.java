@@ -63,7 +63,30 @@ public class BetteryService extends UserService{
 		}
 	}
 	
+	//개인정보조회
 	
+	//반납초과기계
+		
+	//HISTORY
+	
+	
+	//폐기
+	public void deleteBett() {
+		System.out.println("보조배터리 폐기");
+		System.out.println("보조배터리 넘버 입력해주세요");
+		int bettNo = Integer.parseInt(sc.nextLine());
+		
+		Bettery bett = new Bettery();
+		bett.setbNum(bettNo);
+		
+		int result = BetteryDAO.getInstance().deleteBett(bett);
+		
+		if(result > 0) {
+			System.out.println("폐기완료");
+		}else {
+			System.out.println("다시 입력해주세요");
+		}
+	}
 	
 	
 }
