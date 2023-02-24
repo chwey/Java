@@ -58,6 +58,7 @@ public class BetteryService extends UserService{
 			System.out.println("보조배터리 타입 :"+ list.get(i).getbType());
 			System.out.println("배터리 용량 :"+ list.get(i).getbPower() +"%");
 			System.out.println("보조배터리 위치 :"+list.get(i).getbPoint());
+			System.out.println("보조배터리 대여 여부 :"+list.get(i).getbRent());
 			System.out.println("===============================");
 
 		}

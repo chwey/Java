@@ -87,6 +87,37 @@ public class BetteryDAO extends DAO{
 				bett.setbType(rs.getString("b_type"));
 				bett.setbPower(rs.getString("b_power"));
 				bett.setbPoint(rs.getString("b_point"));
+				bett.setbRent(rs.getString("b_rent"));
+				list.add(bett);		
+				
+			}
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			disconn();
+		}
+		return list;
+	}
+	
+	//완전전체조회
+	public List<Bettery>getBetteryAllList(){
+		List<Bettery>list = new ArrayList<>();
+		Bettery bett = null;
+		
+		try {
+			conn();
+			String sql ="select *\r\n"
+					+ "from bettery\r\n";
+			stmt = conn.createStatement();
+			rs = stmt.executeQuery(sql);
+			
+			while(rs.next()) {
+				bett = new Bettery();
+				bett.setbNum(rs.getInt("b_num"));
+				bett.setbType(rs.getString("b_type"));
+				bett.setbPower(rs.getString("b_power"));
+				bett.setbPoint(rs.getString("b_point"));
+				bett.setbRent(rs.getString("b_rent"));
 				list.add(bett);		
 				
 			}

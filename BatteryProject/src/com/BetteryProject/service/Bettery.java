@@ -6,11 +6,12 @@ public class Bettery {
 //	B_TYPE  NOT NULL VARCHAR2(20) 
 //	B_POWER          VARCHAR2(10) 
 //	B_POINT          VARCHAR2(30)
-	
+//	B_RENT           CHAR(1)    
 	private int bNum;
 	private String bType;
 	private String bPower;
 	private String bPoint;
+	private String bRent;
 	
 	
 	public int getbNum() {
@@ -36,6 +37,12 @@ public class Bettery {
 	}
 	public void setbPower(String bPower) {
 		this.bPower = bPower;
+	}
+	public String getbRent() {
+		return bRent;
+	}
+	public void setbRent(String bRent) {
+		this.bRent = bRent;
 	}
 	
 	

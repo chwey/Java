@@ -3,6 +3,7 @@ package com.BetteryProject.exe;
 import java.util.Scanner;
 
 import com.BetteryProject.service.BetteryService;
+import com.BetteryProject.service.UserRentService;
 import com.BetteryProject.service.UserService;
 
 public class ExeApp {
@@ -10,7 +11,7 @@ public class ExeApp {
 	UserService us = new UserService();
 	Scanner sc = new Scanner(System.in);
 	BetteryService bs = new BetteryService();
-	
+	UserRentService urs = new UserRentService();
 	boolean run = true;
 	String menu = "";
 	
@@ -47,7 +48,7 @@ public class ExeApp {
 		System.out.println("입력>");
 		menu = sc.nextLine();
 		if(menu.equals("1")) {
-			
+			urs.getBetteryInfo();
 		}else if(menu.equals("2")) {
 			
 		}else if(menu.equals("3")) {
@@ -137,6 +138,7 @@ public class ExeApp {
 		}
 	}
 	
+	
 	private void BattList() {
 		System.out.println("1. 보조배터리정보조회  2. 개인정보조회  3. 반납기간초과조회  4. HISTORY");
 		System.out.println("입력>");
@@ -170,4 +172,15 @@ public class ExeApp {
 		}
 		
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }
