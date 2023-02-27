@@ -50,7 +50,7 @@ public class ExeApp {
 		if(menu.equals("1")) {
 			urs.Borrow();
 		}else if(menu.equals("2")) {
-			
+			urs.Return();
 		}else if(menu.equals("3")) {
 			modify();
 		}else if(menu.equals("4")) {
@@ -140,13 +140,13 @@ public class ExeApp {
 	
 	
 	private void BattList() {
-		System.out.println("1. 보조배터리정보조회  2. 개인정보조회  3. 반납기간초과조회  4. HISTORY");
+		System.out.println("1. 보조배터리정보조회  2. 보조배터리 상세조회  3. 반납기간초과조회  4. HISTORY");
 		System.out.println("입력>");
 		menu = sc.nextLine();
 		if(menu.equals("1")) {
 			bs.getBetteryList();
 		}else if(menu.equals("2")) {
-			
+			urs.getUserlist();
 		}else if(menu.equals("3")) {
 			
 		}else if(menu.equals("4")) {
@@ -172,9 +172,7 @@ public class ExeApp {
 		}
 		
 	}
-	
-	
-	
+
 
 }
 	

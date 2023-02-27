@@ -64,8 +64,8 @@ public class BetteryService extends UserService{
 		}
 	}
 	
-	//개인정보조회
 	
+
 	//반납초과기계
 		
 	//HISTORY

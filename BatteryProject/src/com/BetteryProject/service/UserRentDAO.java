@@ -93,8 +93,8 @@ public class UserRentDAO extends DAO{
 		
 		try {
 			conn();
-			String sql = "insert into usrrent(b_num, u_id, r_date, r_point) "
-					+ "values ( ?,?,sysdate,?)";
+			String sql = "insert into usrrent(b_num, u_id, r_date, r_point)"
+					+ " values ( ?,?,sysdate,?)";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, urs.getbNum());
 			pstmt.setString(2, urs.getuId());
@@ -137,13 +137,12 @@ public class UserRentDAO extends DAO{
 		
 		try {
 			conn();
-			String sql = "insert into usrrent (b_num, u_id, r_point, b_date, b_point) "
-					+ "values ( ?, ?, ?, sysdate, ?);";
+			String sql = "update usrrent set b_date = sysdate, b_point = ? "
+					+ " where b_num = ? and u_id = ?";
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, urs.getbNum());
-			pstmt.setString(2, urs.getuId());
-			pstmt.setString(3, urs.getrPoiont());
-			pstmt.setString(4, urs.getbPoint());
+			pstmt.setString(1, urs.getbPoint());
+			pstmt.setInt(2, urs.getbNum());
+			pstmt.setString(3, urs.getuId());
 			
 			result = pstmt.executeUpdate();
 			
@@ -161,11 +160,12 @@ public class UserRentDAO extends DAO{
 		
 		try {
 			conn();
-			String sql = "update bettery set b_rent = 'Y', b_power = ? "
+			String sql = "update bettery set b_power = ?, b_point = ?, b_rent = 'Y' "
 					+ "where b_num = ?";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, bett.getbPower());
-			pstmt.setInt(2, bett.getbNum());
+			pstmt.setString(2, bett.getbPoint());
+			pstmt.setInt(3, bett.getbNum());
 			
 			result = pstmt.executeUpdate();
 			
@@ -175,6 +175,40 @@ public class UserRentDAO extends DAO{
 			disconn();
 		}
 		return result;
+	}
+	
+	//배터리상세조회
+	public UserRent getUserlist(int userlist) {
+		UserRent usrt = null;
+		
+		try {
+			conn();
+			String sql = "select *\r\n"
+					+ "from usrrent\r\n"
+					+ "where b_num = ?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, userlist);
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				usrt = new UserRent();
+				usrt.setbNum(rs.getInt("b_num"));
+				usrt.setuId(rs.getString("u_id"));
+				usrt.setrDate(rs.getDate("r_date"));
+				usrt.setrPoiont(rs.getString("r_point"));
+				usrt.setbDate(rs.getDate("b_date"));
+				usrt.setbPoint(rs.getString("b_point"));
+
+			}
+			
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			disconn();
+		}
+		return usrt;
 	}
 
 	

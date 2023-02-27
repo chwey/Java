@@ -1,5 +1,8 @@
 package com.BetteryProject.service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.BetteryProject.common.DAO;
 
 public class UserDAO extends DAO{
@@ -159,12 +162,10 @@ public class UserDAO extends DAO{
 		}
 		return result;
 	}
+
 	
 	
 	
-	
-	
-	
-	
+
 	
 }

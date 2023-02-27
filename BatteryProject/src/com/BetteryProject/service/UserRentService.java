@@ -41,7 +41,7 @@ public class UserRentService extends UserService {
 			if (list.get(i).getbRent().equals("Y")) {
 				able = "대여가능";
 			} else {
-				able = "대여불가";
+				able = "X대여불가";
 			}
 
 			System.out.println(list.get(i).getbNum() + " " + list.get(i).getbType() + " " + list.get(i).getbPower()
@@ -80,31 +80,24 @@ public class UserRentService extends UserService {
 		} else if (menuNo == 4) {
 			rPoint = "동대구역";
 		}
-		List<Bettery> list = UserRentDAO.getInstance().BorrowList(rPoint);
-
+		
 		UserRent urs = new UserRent();
-		for (int i = 0; i < list.size(); i++) {
 
-			String able = null;
-			if (list.get(i).getbRent().equals("N")) {
-				able = "반납가능";
-			} else {
-				able = "반납불가";
-			}
-
-			System.out.println(list.get(i).getbNum() + " " + list.get(i).getbType() + " " + list.get(i).getbPower()
-					+ " " + list.get(i).getbPoint() + " " + able);
-		}
+		Bettery bett =  new Bettery();
+		System.out.println("반납할 배터리 넘버를 입력하세요");
+		int pwr = Integer.parseInt(sc.nextLine());
+		urs.setbNum(pwr);
+		bett.setbNum(pwr);
 		System.out.println("남은 배터리량을 입력해주세요");
-		int num = Integer.parseInt(sc.nextLine());
-		urs.setbNum(num);
+		bett.setbPower(sc.nextLine());
 		urs.setuId(userInfo.getuId());
-		urs.setrPoiont(rPoint);
-
-		int result = UserRentDAO.getInstance().insertBorrow(urs);
+		urs.setbPoint(rPoint);
+		bett.setbPoint(rPoint);
+		
+		int result = UserRentDAO.getInstance().insertReturn(urs);
 		if (result > 0) {
 			System.out.println("반납성공");
-			int re = UserRentDAO.getInstance().modifyBorrow(num);
+			int re = UserRentDAO.getInstance().modifyReturn(bett);
 			if(re == 0) {
 				System.out.println("오류발생");
 			}
@@ -113,13 +106,26 @@ public class UserRentService extends UserService {
 		}
 	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
+	//배터리상세조회
+	public void getUserlist() {
+		System.out.println("배터리 넘버를 입력해주세요");
+		int bNo = Integer.parseInt(sc.nextLine());
+		UserRent urt = UserRentDAO.getInstance().getUserlist(bNo);
+		
+		if(urt == null) {
+			System.out.println("존재하지 않습니다.");
+		}else {
+			System.out.println("배터리 넘버 :" + urt.getbNum());
+			System.out.println("사용자 아이디 :" + urt.getuId());
+			System.out.println("대여시간 : " + urt.getrDate());
+			System.out.println("대여장소 :" + urt.getrPoiont());
+			System.out.println("반납시간 :" + urt.getbDate());
+			System.out.println("반납장소 :" + urt.getbPoint());
+
+		}
+		System.out.println("========================");
+
+	}
+
 
 }

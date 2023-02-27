@@ -128,7 +128,11 @@ public class BetteryDAO extends DAO{
 		}
 		return list;
 	}
+	
 	//개인정보조회
+
+	
+	
 	
 	//반납초과기계
 	
