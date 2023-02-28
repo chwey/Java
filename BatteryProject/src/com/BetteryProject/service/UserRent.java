@@ -1,6 +1,6 @@
 package com.BetteryProject.service;
 
-import java.sql.Date;
+
 
 public class UserRent {
 //	B_NUM   NOT NULL NUMBER(10)   
@@ -17,7 +17,16 @@ public class UserRent {
 	private String rPoiont;
 	private String bDate;
 	private String bPoint;
+	private String over;
 	
+	
+	
+	public String getOver() {
+		return over;
+	}
+	public void setOver(String over) {
+		this.over = over;
+	}
 	public int getbNum() {
 		return bNum;
 	}
@@ -60,6 +69,7 @@ public class UserRent {
 	public void setbPoint(String bPoint) {
 		this.bPoint = bPoint;
 	}
+	
 	
 	
 	

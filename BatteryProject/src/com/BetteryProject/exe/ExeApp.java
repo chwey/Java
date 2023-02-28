@@ -41,9 +41,10 @@ public class ExeApp {
 	
 	private void loginMenu() {
 		//대여, 반납
-		System.out.println("☆.。.:*・°☆ ｡+.｡☆ﾟ:;｡+ﾟ☆.。.:*・°☆ ｡+.｡☆ﾟ:;｡+ﾟ");
-		System.out.println("☆.。.:*1. 대여 ☆.。.:* 2. 반납 ☆.。.:* 3. 회원 수정 ☆.。.:* 4. 탈퇴");
-		System.out.println("입력>");
+		System.out.println("================================================");
+		System.out.println(" 1. 대여  2. 반납   3. 회원 수정   4. 탈퇴   5. 로그아웃 ");
+		System.out.println("================================================");
+		System.out.println("입력하세요");
 		menu = sc.nextLine();
 		if(menu.equals("1")) {
 			urs.Borrow();
@@ -53,14 +54,18 @@ public class ExeApp {
 			modify();
 		}else if(menu.equals("4")) {
 			us.deleteUser();
+		}else if(menu.equals("5")) {
+			us.logout();
 		}
 		
 	}
 	
 	//메인메뉴
 	private void logoutMenu() {
-		System.out.println("☆.。.:*1. 로그인 ☆.。.:* 2. 회원가입 ☆.。.:* 3. 종료 ☆.。.:*");
-		System.out.println("입력>");
+		System.out.println("==============================");
+		System.out.println(" 1. 로그인   2. 회원가입   3. 종료 ");
+		System.out.println("==============================");
+		System.out.println("입력하세요");
 		menu = sc.nextLine();
 		if(menu.equals("1")) {
 			us.login();
@@ -74,8 +79,10 @@ public class ExeApp {
 	//관리자 메뉴
 	//중앙로
 	private void JungangMenu() {
-		System.out.println("☆.。.:*1. 기계등록 ☆.。.:* 2. 기계수정 ☆.。.:* 3. 기계조회 ☆.。.:* 4. 폐기 ☆.。.:*");
-		System.out.println("입력>");
+		System.out.println("====================================================");
+		System.out.println(" 1. 기계등록   2. 기계수정   3. 기계조회   4. 폐기   5. 로그아웃 ");
+		System.out.println("====================================================");
+		System.out.println("입력하세요");
 		menu = sc.nextLine();
 		if(menu.equals("1")) {
 			bs.insertBett();
@@ -85,14 +92,18 @@ public class ExeApp {
 			BattList();
 		}else if(menu.equals("4")) {
 			bs.deleteBett();
+		}else if(menu.equals("5")) {
+			us.logout();
 		}
 	
 	}
 	
 	//칠곡
 	private void ChilgokMenu() {
-		System.out.println("☆.。.:*1. 기계등록 ☆.。.:* 2. 기계수정 ☆.。.:* 3. 기계조회 ☆.。.:* 4. 폐기 ☆.。.:*");
-		System.out.println("입력>");
+		System.out.println("====================================================");
+		System.out.println(" 1. 기계등록   2. 기계수정   3. 기계조회   4. 폐기   5. 로그아웃 ");
+		System.out.println("====================================================");
+		System.out.println("입력하세요");
 		menu = sc.nextLine();
 		if(menu.equals("1")) {
 			bs.insertBett();
@@ -102,14 +113,18 @@ public class ExeApp {
 			BattList();
 		}else if(menu.equals("4")) {
 			bs.deleteBett();
+		}else if(menu.equals("5")) {
+			us.logout();
 		}
 	
 	}
 	
 	//상인
 	private void SanginMenu() {
-		System.out.println("☆.。.:*1. 기계등록 ☆.。.:* 2. 기계수정 ☆.。.:* 3. 기계조회 ☆.。.:* 4. 폐기 ☆.。.:*");
-		System.out.println("입력>");
+		System.out.println("====================================================");
+		System.out.println(" 1. 기계등록   2. 기계수정   3. 기계조회   4. 폐기   5. 로그아웃 ");
+		System.out.println("====================================================");
+		System.out.println("입력하세요");
 		menu = sc.nextLine();
 		if(menu.equals("1")) {
 			bs.insertBett();
@@ -119,14 +134,18 @@ public class ExeApp {
 			BattList();
 		}else if(menu.equals("4")) {
 			bs.deleteBett();
+		}else if(menu.equals("5")) {
+			us.logout();
 		}
 	
 	}
 	
 	//동대구역
 	private void DongdaeguMenu() {
-		System.out.println("☆.。.:*1. 기계등록 ☆.。.:* 2. 기계수정 ☆.。.:* 3. 기계조회 ☆.。.:* 4. 폐기 ☆.。.:*");
-		System.out.println("입력>");
+		System.out.println("====================================================");
+		System.out.println(" 1. 기계등록   2. 기계수정   3. 기계조회   4. 폐기   5. 로그아웃 ");
+		System.out.println("====================================================");
+		System.out.println("입력하세요");
 		menu = sc.nextLine();
 		if(menu.equals("1")) {
 			bs.insertBett();
@@ -136,20 +155,24 @@ public class ExeApp {
 			BattList();
 		}else if(menu.equals("4")) {
 			bs.deleteBett();
+		}else if(menu.equals("5")) {
+			us.logout();
 		}
 	}
 	
 	
 	private void BattList() {
+		System.out.println("==============================================================");
 		System.out.println("1. 보조배터리정보조회  2. 보조배터리 상세조회  3. 반납기간초과조회  4. HISTORY");
-		System.out.println("입력>");
+		System.out.println("==============================================================");
+		System.out.println("입력하세요");
 		menu = sc.nextLine();
 		if(menu.equals("1")) {
 			bs.getBetteryList();
 		}else if(menu.equals("2")) {
 			urs.getUserlist();
 		}else if(menu.equals("3")) {
-			
+			urs.overList();
 		}else if(menu.equals("4")) {
 			urs.getUserlastlist();
 		}
@@ -160,8 +183,10 @@ public class ExeApp {
 	
 	//수정
 	private void modify() {
+		System.out.println("========================================");
 		System.out.println("1. 비밀번호 수정  2. 전화번호 수정  3. 이메일 수정");
-		System.out.println("입력>");
+		System.out.println("========================================");
+		System.out.println("입력하세요");
 		menu = sc.nextLine();
 		if(menu.equals("1")) {
 			us.modifypw();

@@ -93,13 +93,12 @@ public class UserRentDAO extends DAO{
 		
 		try {
 			conn();
-			String sql = "insert into usrrent(b_num, u_id, r_date, r_point) "
-					+ " values ( ?, ?, ?, ?)";
+			String sql = "insert into usrrent(b_num, u_id, r_date, r_point)"
+					+ " values ( ?, ?, sysdate, ?)";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, urs.getbNum());
-			pstmt.setString(2, urs.getuId());
-			pstmt.setString(3, urs.getrDate());	
-			pstmt.setString(4, urs.getrPoiont());
+			pstmt.setString(2, urs.getuId());	
+			pstmt.setString(3, urs.getrPoiont());
 			
 			result = pstmt.executeUpdate();
 			
@@ -138,13 +137,13 @@ public class UserRentDAO extends DAO{
 		
 		try {
 			conn();
-			String sql = "update usrrent set b_date = ?, b_point = ?"
+			String sql = "update usrrent set b_date = sysdate, b_point = ?"
 					+ " where b_num = ? and u_id = ?";
+					
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, urs.getbDate());
-			pstmt.setString(2, urs.getbPoint());
-			pstmt.setInt(3, urs.getbNum());
-			pstmt.setString(4, urs.getuId());
+			pstmt.setString(1, urs.getbPoint());
+			pstmt.setInt(2, urs.getbNum());
+			pstmt.setString(3, urs.getuId());
 			
 			result = pstmt.executeUpdate();
 			
@@ -163,7 +162,7 @@ public class UserRentDAO extends DAO{
 		try {
 			conn();
 			String sql = "update bettery set b_power = ?, b_point = ?, b_rent = 'Y' "
-					+ "where b_num = ?";
+					+ " where b_num = ?";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, bett.getbPower());
 			pstmt.setString(2, bett.getbPoint());
@@ -213,6 +212,43 @@ public class UserRentDAO extends DAO{
 		return usrt;
 	}
 	
+	//반납일 초과
+	public List<UserRent> overList() {
+		List<UserRent>list = new ArrayList();
+		UserRent over = null;
+		
+		try {
+			conn();
+			String sql = "select u_id, b_num, r_point, r_date, b_point, b_date\r\n"
+					+ ",trunc ((b_date - r_date), 0) as 반납일연체\r\n"
+					+ "from usrrent\r\n"
+					+ "where trunc((sysdate - r_date),0)  > 0";
+			
+			stmt = conn.createStatement();
+			rs = stmt.executeQuery(sql);
+	
+			while(rs.next()) {
+				over = new UserRent();
+				over.setuId(rs.getString("u_id"));
+				over.setbNum(rs.getInt("b_num"));
+				over.setrPoiont(rs.getString("r_point"));
+				over.setrDate(rs.getString("r_date"));
+				over.setbPoint(rs.getString("b_point"));
+				over.setbDate(rs.getString("b_date"));
+				over.setOver(rs.getString("반납일연체"));
+				list.add(over);
+				
+			}
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			disconn();
+		}
+		return list;
+		
+	}
+	
+	
 	//HISTORY
 	public UserRent getUserlastlist(String lastlist) {
 		UserRent usrt = null;
@@ -246,7 +282,32 @@ public class UserRentDAO extends DAO{
 		}
 		return usrt;
 	}
-
+	
+	//대여가능여부
+	public String able(int key) {
+		String able = null;
+		try {
+			conn();
+			String sql = "select b_rent\n"
+					+ "from bettery\n"
+					+ "where b_num = ?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, key);
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				able = rs.getString("b_rent");
+			}
+	
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			disconn();
+		}
+		return able;
+	}
+	
 	
 }
 	

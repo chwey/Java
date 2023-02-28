@@ -10,7 +10,7 @@ public class BetteryService extends UserService{
 	//기계정보등록
 	public void insertBett() {
 		Bettery bett = new Bettery();
-		System.out.println("======보조배터리 등록 =======");
+		System.out.println("======보조배터리 등록=======");
 		System.out.println("보조배터리 넘버");
 		bett.setbNum(Integer.parseInt(sc.nextLine()));	
 		System.out.println("보조배터리 타입");
@@ -29,7 +29,7 @@ public class BetteryService extends UserService{
 	
 	//기계정보수정
 	public void modifyBett() {
-		System.out.println("위치수정");
+		System.out.println("===== 위치수정 =====");
 		System.out.println("보조배터리 넘버를 입력하세요");
 		int betNo = Integer.parseInt(sc.nextLine());
 		System.out.println("보조배터리 위치를 수정하세요");
@@ -67,7 +67,7 @@ public class BetteryService extends UserService{
 	
 	//폐기
 	public void deleteBett() {
-		System.out.println("보조배터리 폐기");
+		System.out.println("=== 보조배터리 폐기 ===");
 		System.out.println("보조배터리 넘버 입력해주세요");
 		int bettNo = Integer.parseInt(sc.nextLine());
 		

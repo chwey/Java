@@ -20,18 +20,26 @@ public class UserService {
 		
 		if(user != null) {
 			if(user.getuPw().equals(userPW)) {
-				System.out.println("로그인 완료 ✌(-‿-)✌");
-				System.out.println(user.getuName() + "님 안녕하세요 ˙ᵕ˙");
+				System.out.println("로그인 완료");
+				System.out.println(user.getuName() + "님 안녕하세요");
 				userInfo = user;
 			}else {
 				System.out.println("비밀번호가 틀립니다.");
 			}
 		}else {
-			System.out.println("아이디가 존재하지 않습니다 ( ఠ్ఠ ˓̭ ఠ్ఠ )");
+			System.out.println("아이디가 존재하지 않습니다.");
 		}
 		
 	}
 	
+	//로그아웃
+	public void logout() {
+		userInfo = null;
+		System.out.println("로그아웃");
+		
+	}
+		
+		
 	//가입
 	public void insertUser() {
 		User use = new User();
@@ -50,18 +58,18 @@ public class UserService {
 		int result = UserDAO.getInstance().insertUser(use);
 		
 		if(result > 0) {
-			System.out.println("회원등록완료");
+			System.out.println("회원등록이 완료되었습니다.");
 		}else {
-			System.out.println("회원등록실패");
+			System.out.println("회원등록이 실패되었습니다. 다시 입력해주세요.");
 		}
 	}
 	
 	//pw수정
 	public void modifypw() {
-		System.out.println("회원수정");
-		System.out.println("ID를 입력하세요");
+		System.out.println("=== 비밀번호 수정 ===");
+		System.out.println("아이디를 입력하세요");
 		String useNo = sc.nextLine();
-		System.out.println("비밀번호 수정");
+		System.out.println("새로운 비밀번호를 입력해주세요.");
 		String usepw = sc.nextLine();
 		
 		User use = new User();
@@ -78,10 +86,10 @@ public class UserService {
 	}
 	//전화번호 수정
 	public void modifypn() {
-		System.out.println("회원수정");
-		System.out.println("ID를 입력하세요");
+		System.out.println("=== 전화번호 수정 ===");
+		System.out.println("아이디를 입력하세요");
 		String useNo = sc.nextLine();
-		System.out.println("전화번호 수정");
+		System.out.println("새로운 전화번호를 입력해주세요");
 		String usepn = sc.nextLine();
 
 		
@@ -99,10 +107,10 @@ public class UserService {
 	}
 	//메일 수정
 	public void modifymail() {
-		System.out.println("회원수정");
+		System.out.println("=== 메일 수정 ===");
 		System.out.println("ID를 입력하세요");
 		String useNo = sc.nextLine();
-		System.out.println("이메일 수정");
+		System.out.println("새로운 이메일을 입력해주세요");
 		String usemail = sc.nextLine();
 		
 		User use = new User();
@@ -120,7 +128,7 @@ public class UserService {
 	
 	//삭제
 	public void deleteUser() {
-		System.out.println("계정 삭제");
+		System.out.println("=== 계정 삭제 ===");
 		System.out.println("아이디를 입력해주세요");
 		String useNo = sc.nextLine();
 		
@@ -131,9 +139,9 @@ public class UserService {
 		
 		if(result > 0) {
 			UserService.userInfo = null; //로그아웃
-			System.out.println("계정 삭제 완료");
+			System.out.println("계정이 삭제되었습니다.");
 		}else {
-			System.out.println("계정 삭제 실패");
+			System.out.println("아이디를 다시 입력해주세요.");
 		}
 	}
 	
