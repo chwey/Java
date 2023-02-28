@@ -63,13 +63,7 @@ public class BetteryService extends UserService{
 
 		}
 	}
-	
-	
 
-	//반납초과기계
-		
-	//HISTORY
-	
 	
 	//폐기
 	public void deleteBett() {

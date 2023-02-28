@@ -36,9 +36,7 @@ public class ExeApp {
 			}else if(UserService.userInfo != null){
 				loginMenu();
 			}
-			
 		}
-
 	}
 	
 	private void loginMenu() {
@@ -68,6 +66,9 @@ public class ExeApp {
 			us.login();
 		}else if(menu.equals("2")) {
 			us.insertUser();
+		}else if(menu.equals("3")) {
+			run = false;
+			System.out.println("프로그램 종료");
 		}
 	}
 	//관리자 메뉴
@@ -150,7 +151,7 @@ public class ExeApp {
 		}else if(menu.equals("3")) {
 			
 		}else if(menu.equals("4")) {
-			
+			urs.getUserlastlist();
 		}
 		
 		

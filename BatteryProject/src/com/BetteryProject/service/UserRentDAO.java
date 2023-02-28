@@ -38,9 +38,9 @@ public class UserRentDAO extends DAO{
 				rent.setbNum(rs.getInt("b_num"));
 				rent.setbRent(rs.getBoolean("b_rent"));
 				rent.setuId(rs.getString("u_id"));
-				rent.setrDate(rs.getDate("r_date"));
+				rent.setrDate(rs.getString("r_date"));
 				rent.setrPoiont(rs.getString("r_point"));
-				rent.setbDate(rs.getDate("b_date"));
+				rent.setbDate(rs.getString("b_date"));
 				rent.setbPoint(rs.getString("b_point"));
 				list.add(rent);
 				
@@ -93,12 +93,13 @@ public class UserRentDAO extends DAO{
 		
 		try {
 			conn();
-			String sql = "insert into usrrent(b_num, u_id, r_date, r_point)"
-					+ " values ( ?,?,sysdate,?)";
+			String sql = "insert into usrrent(b_num, u_id, r_date, r_point) "
+					+ " values ( ?, ?, ?, ?)";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, urs.getbNum());
 			pstmt.setString(2, urs.getuId());
-			pstmt.setString(3, urs.getrPoiont());
+			pstmt.setString(3, urs.getrDate());	
+			pstmt.setString(4, urs.getrPoiont());
 			
 			result = pstmt.executeUpdate();
 			
@@ -137,12 +138,13 @@ public class UserRentDAO extends DAO{
 		
 		try {
 			conn();
-			String sql = "update usrrent set b_date = sysdate, b_point = ? "
+			String sql = "update usrrent set b_date = ?, b_point = ?"
 					+ " where b_num = ? and u_id = ?";
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, urs.getbPoint());
-			pstmt.setInt(2, urs.getbNum());
-			pstmt.setString(3, urs.getuId());
+			pstmt.setString(1, urs.getbDate());
+			pstmt.setString(2, urs.getbPoint());
+			pstmt.setInt(3, urs.getbNum());
+			pstmt.setString(4, urs.getuId());
 			
 			result = pstmt.executeUpdate();
 			
@@ -195,9 +197,43 @@ public class UserRentDAO extends DAO{
 				usrt = new UserRent();
 				usrt.setbNum(rs.getInt("b_num"));
 				usrt.setuId(rs.getString("u_id"));
-				usrt.setrDate(rs.getDate("r_date"));
+				usrt.setrDate(rs.getString("r_date"));
 				usrt.setrPoiont(rs.getString("r_point"));
-				usrt.setbDate(rs.getDate("b_date"));
+				usrt.setbDate(rs.getString("b_date"));
+				usrt.setbPoint(rs.getString("b_point"));
+
+			}
+			
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			disconn();
+		}
+		return usrt;
+	}
+	
+	//HISTORY
+	public UserRent getUserlastlist(String lastlist) {
+		UserRent usrt = null;
+		
+		try {
+			conn();
+			String sql = "select *\n"
+					+ "from usrrent\n"
+					+ "where u_id = ?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, lastlist);
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				usrt = new UserRent();
+				usrt.setbNum(rs.getInt("b_num"));
+				usrt.setuId(rs.getString("u_id"));
+				usrt.setrDate(rs.getString("r_date"));
+				usrt.setrPoiont(rs.getString("r_point"));
+				usrt.setbDate(rs.getString("b_date"));
 				usrt.setbPoint(rs.getString("b_point"));
 
 			}

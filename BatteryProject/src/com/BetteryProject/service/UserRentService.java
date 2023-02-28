@@ -1,6 +1,6 @@
 package com.BetteryProject.service;
 
-import java.sql.Date;
+
 import java.util.List;
 import java.util.Scanner;
 
@@ -126,6 +126,26 @@ public class UserRentService extends UserService {
 		System.out.println("========================");
 
 	}
+	
+	//HISTORY
+	public void getUserlastlist() {
+		System.out.println("사용자 아이디를 입력해주세요");
+		String bNo = sc.nextLine();
+		UserRent urt = UserRentDAO.getInstance().getUserlastlist(bNo);
+		
+		if(urt == null) {
+			System.out.println("존재하지 않습니다.");
+		}else {
+			System.out.println("배터리 넘버 :" + urt.getbNum());
+			System.out.println("사용자 아이디 :" + urt.getuId());
+			System.out.println("대여시간 : " + urt.getrDate());
+			System.out.println("대여장소 :" + urt.getrPoiont());
+			System.out.println("반납시간 :" + urt.getbDate());
+			System.out.println("반납장소 :" + urt.getbPoint());
 
+		}
+		System.out.println("========================");
+
+	}
 
 }

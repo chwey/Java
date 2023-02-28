@@ -13,9 +13,9 @@ public class UserRent {
 	private int bNum;
 	private boolean bRent;
 	private String uId;
-	private Date rDate;
+	private String rDate;
 	private String rPoiont;
-	private Date bDate;
+	private String bDate;
 	private String bPoint;
 	
 	public int getbNum() {
@@ -36,10 +36,10 @@ public class UserRent {
 	public void setuId(String uId) {
 		this.uId = uId;
 	}
-	public Date getrDate() {
+	public String getrDate() {
 		return rDate;
 	}
-	public void setrDate(Date rDate) {
+	public void setrDate(String rDate) {
 		this.rDate = rDate;
 	}
 	public String getrPoiont() {
@@ -48,10 +48,10 @@ public class UserRent {
 	public void setrPoiont(String rPoiont) {
 		this.rPoiont = rPoiont;
 	}
-	public Date getbDate() {
+	public String getbDate() {
 		return bDate;
 	}
-	public void setbDate(Date bDate) {
+	public void setbDate(String bDate) {
 		this.bDate = bDate;
 	}
 	public String getbPoint() {
